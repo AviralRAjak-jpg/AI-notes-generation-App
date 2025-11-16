@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyChat - AI Study Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            '50': '#f0faff', '100': '#e0f4ff', '200': '#b9e9ff', '300': '#7ccfff',
+                            '400': '#36b0ff', '500': '#078ce0', '600': '#006ab8', '700': '#005595',
+                            '800': '#01477a', '900': '#063d66', '950': '#042744'
+                        },
+                        'secondary': {
+                            '50': '#f5f5ff', '100': '#edebff', '200': '#dcd7ff', '300': '#c1b8ff',
+                            '400': '#a292ff', '500': '#8168ff', '600': '#7645fd', '700': '#6632e8',
+                            '800': '#5428c0', '900': '#46239b', '950': '#291464'
+                        },
+                        'neutral': {
+                            '50': '#f8fafc', '100': '#f1f5f9', '200': '#e2e8f0', '300': '#cbd5e1',
+                            '400': '#94a3b8', '500': '#64748b', '600': '#475569', '700': '#334155',
+                            '800': '#1e293b', '900': '#0f172a', '950': '#020617'
+                        },
+                    },
+                    animation: {
+                        'gradient-bg': 'gradient-bg 30s ease infinite',
+                        'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        'gradient-bg': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        'fade-in-up': {
+                            'from': { opacity: '0', transform: 'translateY(10px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                'code::before': { content: '""' },
+                                'code::after': { content: '""' }
+                            }
+                        }
+                    }),
+                }
+            },
+            plugins: [
+                require('@tailwindcss/typography'),
+            ],
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <style>
+        /* Custom style to highlight rendered MathJax formulas */
+        .prose mjx-container {
+            background-color: #e2e8f0; /* neutral-200 */
+            padding: 0.1em 0.4em;
+            border-radius: 6px;
+            display: inline-block;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .dark .prose mjx-container {
+            background-color: #334155; /* neutral-700 */
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.5s ease-out forwards;
+        }
+    </style>
+    <script>
+      // MathJax Configuration
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1"
+  }
+}
+</script>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900">
+<div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

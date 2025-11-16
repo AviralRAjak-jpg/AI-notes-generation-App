@@ -1,0 +1,5 @@
+{
+  "name": "StudyChat",
+  "description": "An AI-powered study notes assistant that helps students generate notes, formulas, summaries, and practice questions. Features LaTeX rendering for math, conversation export to PDF, and a friendly, themeable interface.",
+  "requestFramePermissions": []
+}
